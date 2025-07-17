@@ -9,7 +9,6 @@ const App = () => {
   const [date, setDate] = useState(new Date());
   const [matchesByCompetition, setMatchesByCompetition] = useState({});
   const [loading, setLoading] = useState(false);
-  const MyToken = process.env.REACT_APP_API_KEY;
 
   const formatDate = (date) => date.toISOString().split("T")[0];
 
@@ -36,20 +35,14 @@ const App = () => {
     const fetchMatches = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(
-          `https://cors-anywhere.herokuapp.com/https://api.football-data.org/v4/matches`,
-          {
-            headers: { "X-Auth-Token": MyToken },
-            params: {
-              competitions: "PL,SA,EC,PPL,ELC,FL1,PD,BSA,DED,BL1,CL,WC",
-              date: formatDate(date),
-            },
-          }
-        );
+        const response = await axios.get(`/.netlify/functions/footballProxy`, {
+          params: {
+            date: formatDate(date),
+          },
+        });
         const groupedMatches = groupMatchesByCompetition(response.data.matches);
         setMatchesByCompetition(groupedMatches);
       } catch (error) {
-        console.error("Error fetching matches:", error);
         setMatchesByCompetition({});
       } finally {
         setLoading(false);
@@ -57,7 +50,7 @@ const App = () => {
     };
 
     fetchMatches();
-  }, [date, MyToken]);
+  }, [date]);
 
   return (
     <div className="d-flex flex-column" style={{ minHeight: "100vh" }}>
