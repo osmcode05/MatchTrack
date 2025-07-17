@@ -36,13 +36,16 @@ const App = () => {
     const fetchMatches = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`/v4/matches`, {
-          headers: { "X-Auth-Token": MyToken },
-          params: {
-            competitions: "PL,SA,EC,PPL,ELC,FL1,PD,BSA,DED,BL1,CL,WC",
-            date: formatDate(date),
-          },
-        });
+        const response = await axios.get(
+          `https://api.football-data.org/v4/matches`,
+          {
+            headers: { "X-Auth-Token": MyToken },
+            params: {
+              competitions: "PL,SA,EC,PPL,ELC,FL1,PD,BSA,DED,BL1,CL,WC",
+              date: formatDate(date),
+            },
+          }
+        );
         const groupedMatches = groupMatchesByCompetition(response.data.matches);
         setMatchesByCompetition(groupedMatches);
       } catch (error) {
