@@ -37,7 +37,7 @@ const App = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `https://api.football-data.org/v4/matches`,
+          `https://cors-anywhere.herokuapp.com/https://api.football-data.org/v4/matches`,
           {
             headers: { "X-Auth-Token": MyToken },
             params: {
