@@ -1,0 +1,21 @@
+#No_matches,
+#Loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#HOME_TEAM_STAR {
+  left: 30px;
+  top: -10px;
+}
+#AWAY_TEAM_STAR {
+  right: 30px;
+  top: -10px;
+}
+
+@media screen and (max-width: 426px) {
+  .navbar > .container {
+    justify-content: center;
+  }
+}
