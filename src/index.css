@@ -1,3 +1,6 @@
+body {
+  font-family: "Inter", sans-serif;
+}
 #No_matches,
 #Loading {
   position: absolute;
