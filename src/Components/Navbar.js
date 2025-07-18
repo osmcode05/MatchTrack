@@ -5,7 +5,7 @@ const Navbar = ({ updateDate, formatDate, date, setDate }) => {
     <nav className="navbar bg-white py-3 shadow-sm sticky-top z-3">
       <div className="container gap-3">
         <div className="d-flex align-items-center">
-          <FaFutbol className="me-3 text-danger" size={35} />
+          <FaFutbol className="me-3 text-success" size={35} />
           <span className="fs-4 fw-bold fst-italic">OSM MatchTrack</span>
         </div>
 
