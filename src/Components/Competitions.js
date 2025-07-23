@@ -1,7 +1,12 @@
 import { Card, ListGroup, Badge } from "react-bootstrap";
 import { FaStar } from "react-icons/fa";
+import { appContext } from "../App";
+import { useContext } from "react";
 
-const Competitions = ({ matchesByCompetition }) => {
+const Competitions = () => {
+
+  const { matchesByCompetition } = useContext(appContext)
+
   //get winner function for add a start for the winner team
   const getWinner = (match, teamType) => {
     return match.status === "FINISHED" && match.score.winner === teamType;

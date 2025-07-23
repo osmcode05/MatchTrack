@@ -8,7 +8,7 @@ exports.handler = async (event) => {
       "https://api.football-data.org/v4/matches",
       {
         params: {
-          competitions: "PL,SA,EC,PPL,ELC,FL1,PD,BSA,DED,BL1,CL,WC",
+          competitions: "PL,SA,EC,PPL,ELC,FL1,PD,DED,BL1,CL,WC",
           date: date,
         },
         headers: {

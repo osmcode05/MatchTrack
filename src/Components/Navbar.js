@@ -1,6 +1,12 @@
 import { Form } from "react-bootstrap";
 import { FaChevronLeft, FaChevronRight, FaFutbol } from "react-icons/fa";
-const Navbar = ({ updateDate, formatDate, date, setDate }) => {
+import { appContext } from "../App";
+import { useContext } from "react";
+
+const Navbar = () => {
+
+  const { updateDate, formatDate, date, setDate } = useContext(appContext)
+
   return (
     <nav className="navbar bg-white py-3 shadow-sm sticky-top z-3">
       <div className="container gap-3">
